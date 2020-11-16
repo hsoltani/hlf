@@ -1,0 +1,287 @@
+labels:
+  io.cattle.role: cluster # options are cluster/project
+  io.rancher.app_min_version: 7.3.8
+categories:
+- Blog
+- CMS
+questions:
+- variable: network.genesisProfile
+  default: OrdererGenesis
+  description: "used by init script to create genesis block and by peer-org-flow to parse consortiums"
+  label: genesisProfile
+  type: string
+  group: "Network"
+- variable: network.systemChannelID
+  default: testchainid
+  description: "used by init script to create genesis block"
+  label: systemChannelID
+  type: string
+  group: "Network"
+- variable: network.channels[0].name
+  default: common
+  description: "defines which organizations will join to which channels"
+  label: channels name
+  type: string
+  group: "Network"
+- variable: network.channels[0].orgs[0]
+  default: Karga
+  description: "all peers in these organizations will join the channel"
+  label: channels orgs
+  type: string
+  group: "Network"
+- variable: network.channels[0].orgs[1]
+  default: Nevergreen
+  description: "all peers in these organizations will join the channel"
+  label: channels orgs
+  type: string
+  group: "Network"
+- variable: network.channels[0].orgs[2]
+  default: Atlantis
+  description: "all peers in these organizations will join the channel"
+  label: channels orgs
+  type: string
+  group: "Network"
+  
+- variable: network.channels[1].name
+  default: private-karga-atlantis
+  description: "defines which organizations will join to which channels"
+  label: channels name
+  type: string
+  group: "Network"
+- variable: network.channels[1].orgs[0]
+  default: Karga
+  description: "all peers in these organizations will join the channel"
+  label: channels orgs
+  type: string
+  group: "Network"
+- variable: network.channels[1].orgs[1]
+  default: Atlantis
+  description: "all peers in these organizations will join the channel"
+  label: channels orgs
+  type: string
+  group: "Network"
+  
+  
+- variable: network.chaincodes[0].name
+  default: very-simple
+  description: "defines which chaincodes will be installed to which organizations"
+  label: chaincodes name
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].orgs[0]
+  default: Karga
+  description: "chaincode will be installed to all peers in these organizations"
+  label: chaincodes orgs
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].orgs[1]
+  default: Nevergreen
+  description: "chaincode will be installed to all peers in these organizations"
+  label: chaincodes orgs
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].orgs[2]
+  default: Atlantis
+  description: "chaincode will be installed to all peers in these organizations"
+  label: chaincodes orgs
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].channels[0].name
+  default: common
+  description: "at which channels are we instantiating/upgrading chaincode?"
+  label: chaincodes channels name
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].channels[0].orgs[0]
+  default: Karga
+  description: "chaincode will be invoked on all peers in these organizations"
+  label: chaincodes channels orgs
+  type: string
+  group: "Network" 
+- variable: network.chaincodes[0].channels[0].orgs[1]
+  default: Nevergreen
+  description: "chaincode will be invoked on all peers in these organizations"
+  label: chaincodes channels orgs
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].channels[0].orgs[2]
+  default: Atlantis
+  description: "chaincode will be invoked on all peers in these organizations"
+  label: chaincodes channels orgs
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].channels[0].policy
+  default: OR('KargaMSP.member','NevergreenMSP.member','AtlantisMSP.member')
+  description: "chaincode will be invoked on all peers in these organizations"
+  label: chaincodes channels policy
+  type: string
+  group: "Network"
+- variable: network.chaincodes[1].name
+  default: even-simpler
+  description: "defines which chaincodes will be installed to which organizations"
+  label: chaincodes name
+  type: string
+  group: "Network"
+- variable: network.chaincodes[1].language
+  default: golang
+  description: "chaincode.language value"
+  label: chaincodes language
+  type: string
+  group: "Network"
+- variable: network.chaincodes[1].orgs[0]
+  default: Karga
+  description: "chaincode will be installed to all peers in these organizations"
+  label: chaincodes orgs
+  type: string
+  group: "Network"
+- variable: network.chaincodes[1].orgs[1]
+  default: Atlantis
+  description: "chaincode will be installed to all peers in these organizations"
+  label: chaincodes orgs
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].channels[0].name
+  default: private-karga-atlantis
+  description: "at which channels are we instantiating/upgrading chaincode?"
+  label: chaincodes channels name
+  type: string
+  group: "Network"
+- variable: network.chaincodes[0].channels[0].orgs[0]
+  default: Karga
+  description: "chaincode will be invoked on all peers in these organizations"
+  label: chaincodes channels orgs
+  type: string
+  group: "Network"  
+- variable: network.chaincodes[0].channels[0].orgs[1]
+  default: Atlantis
+  description: "chaincode will be invoked on all peers in these organizations"
+  label: chaincodes channels orgs
+  type: string
+  group: "Network"  
+- variable: network.chaincodes[0].channels[0].policy
+  default: OR('KargaMSP.member','AtlantisMSP.member')
+  description: "chaincode will be invoked on all peers in these organizations"
+  label: chaincodes channels policy
+  type: string
+  group: "Network"
+  
+  
+  
+- variable: OrdererOrgs[0].Name
+  default: Groeifabriek
+  description: "Definition of organizations managing orderer nodes"
+  label:  OrdererOrgs Name
+  type: string
+  group: "OrdererOrgs"
+- variable: OrdererOrgs[0].Domain
+  default: groeifabriek.nl
+  description: "Definition of organizations managing orderer nodes"
+  label:  OrdererOrgs Domain
+  type: string
+  group: "OrdererOrgs"
+- variable: OrdererOrgs[0].EnableNodeOUs
+  default: true
+  description: "Definition of organizations managing orderer nodes"
+  label:  OrdererOrgs EnableNodeOUs
+  type: boolean
+  group: "OrdererOrgs"
+- variable: OrdererOrgs[0].Specs[0].Hostname
+  default: orderer0
+  description: "Definition of organizations managing orderer nodes"
+  label:  OrdererOrgs Specs Hostname
+  type: string
+  group: "OrdererOrgs"
+  
+- variable: PeerOrgs[0].Name
+  default: Karga
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Name
+  type: string
+  group: "PeerOrgs"
+- variable: PeerOrgs[0].Domain
+  default: aptalkarga.tr
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Domain
+  type: string
+  group: "PeerOrgs"
+- variable: PeerOrgs[0].EnableNodeOUs
+  default: true
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs EnableNodeOUs
+  type: boolean
+  group: "PeerOrgs"
+- variable: PeerOrgs[0].Template.Count
+  default: 1
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Template Count
+  type: int
+  group: "PeerOrgs"
+- variable: PeerOrgs[0].Users.Count
+  default: 1
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Users Count
+  type: int
+  group: "PeerOrgs"
+  
+  
+- variable: PeerOrgs[1].Name
+  default: Nevergreen
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Name
+  type: string
+  group: "PeerOrgs"
+- variable: PeerOrgs[1].Domain
+  default: nevergreen.nl
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Domain
+  type: string
+  group: "PeerOrgs"
+- variable: PeerOrgs[1].EnableNodeOUs
+  default: true
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs EnableNodeOUs
+  type: boolean
+  group: "PeerOrgs"
+- variable: PeerOrgs[1].Template.Count
+  default: 1
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Template Count
+  type: int
+  group: "PeerOrgs"
+- variable: PeerOrgs[1].Users.Count
+  default: 1
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Users Count
+  type: int
+  group: "PeerOrgs"
+
+- variable: PeerOrgs[2].Name
+  default: Atlantis
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Name
+  type: string
+  group: "PeerOrgs"
+- variable: PeerOrgs[2].Domain
+  default: atlantis.com
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Domain
+  type: string
+  group: "PeerOrgs"
+- variable: PeerOrgs[2].EnableNodeOUs
+  default: true
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs EnableNodeOUs
+  type: boolean
+  group: "PeerOrgs"
+- variable: PeerOrgs[2].Template.Count
+  default: 1
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Template Count
+  type: int
+  group: "PeerOrgs"
+- variable: PeerOrgs[2].Users.Count
+  default: 1
+  description: "Definition of organizations managing peer nodes"
+  label:  PeerOrgs Users Count
+  type: int
+  group: "PeerOrgs"
